@@ -194,3 +194,7 @@ alt+b — move cursor backward 1 word
 ## scp copy in aws 
 only file :- scp -i r_login.pem  artifactory-oss-6.7.2.tar.gz  ec2-user@34.222.132.1:/home/ec2-user 
 for folder :- scp -ri r_login.pem  artifactory-oss-6.7.2.tar.gz  ec2-user@34.222.132.1:/home/ec2-user
+
+
+## Download Demo File from web 
+curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip
