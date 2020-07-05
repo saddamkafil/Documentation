@@ -200,4 +200,3 @@ for folder :- scp -ri r_login.pem  artifactory-oss-6.7.2.tar.gz  ec2-user@34.222
 curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip
 
 
-I am good
