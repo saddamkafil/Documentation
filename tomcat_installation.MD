@@ -72,7 +72,7 @@ Access tomcat application from browser on port 8090
    #search for context.xml
    find / -name context.xml
    ```
-1. above command gives 3 context.xml files. comment (<!-- & -->) `Value ClassName` field on files which are under webapp directory. 
+1. above command gives 3 context.xml files. comment (<!-- & -->) `Value ClassName` field on files which are under webapp directory comment below lines.
 
 1. Valve className="org.apache.catalina.valves.RemoteAddrValve"       allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /
 
