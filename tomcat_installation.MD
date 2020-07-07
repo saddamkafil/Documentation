@@ -74,7 +74,7 @@ Access tomcat application from browser on port 8090
    ```
 1. above command gives 3 context.xml files. comment (<!-- & -->) `Value ClassName` field on files which are under webapp directory. 
 
-1. <Valve className="org.apache.catalina.valves.RemoteAddrValve"       allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> 
+1. Valve className="org.apache.catalina.valves.RemoteAddrValve"       allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /
 
 After that restart tomcat services to effect these changes
    ```sh 
