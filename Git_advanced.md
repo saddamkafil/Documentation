@@ -100,4 +100,7 @@
 
         if you want only last three commits then you can do git log -3.
         if you want commits in oneline then the command will be git log --oneline
+        
+## git config -l
+- show current profile settings on local machine 
 
