@@ -74,3 +74,5 @@ docker exec -it <container_Name> /bin/bash
 |`docker build -t imagename .`| To build a docker image |
 |`docker build -t imagename -f Dockerfilename`| To Build a Docker image from Dockerfile wich is with Dockefilename|
 |`docker run -itd -p 8080:8080 --name containername imagename:tag /bin/bash`| To run a docker container on port 8080|
+|`docker cp <src-path> <container>:<dest-path> `| To copy a file from the local file system to a running container|
+|`docker cp <container>:<src-path> <local-dest-path> `|To copy a file from the container to the local file system|
