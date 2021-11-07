@@ -69,7 +69,7 @@ docker exec -it <container_Name> /bin/bash
 
 | Command | Description |
 | ------- | ----------- |
-|`sudo docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm`| Removes all containers in exited state|
+|``sudo docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm``| Removes all containers in exited state|
 |`docker rmi $(docker images -f "dangling=true" -q)`| Removes all images with name none|
 |`docker build -t imagename .`| To build a docker image |
 |`docker build -t imagename -f Dockerfilename`| To Build a Docker image from Dockerfile wich is with Dockefilename|
