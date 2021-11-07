@@ -73,3 +73,4 @@ docker exec -it <container_Name> /bin/bash
 |`docker rmi $(docker images -f "dangling=true" -q)`| Removes all images with name none|
 |`docker build -t imagename .`| To build a docker image |
 |`docker build -t imagename -f Dockerfilename`| To Build a Docker image from Dockerfile wich is with Dockefilename|
+|`docker run -itd -p 8080:8080 --name containername imagename:tag /bin/bash`| To run a docker container on port 8080|
