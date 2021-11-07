@@ -65,3 +65,7 @@ docker rm <container_id>
 ```sh
 docker exec -it <container_Name> /bin/bash
 ```
+
+|Command|Funcationality|
+|`sudo docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm`| Removes all containers in exited state|
+|`docker rmi $(docker images -f "dangling=true" -q)`| Removes all images with name none|
