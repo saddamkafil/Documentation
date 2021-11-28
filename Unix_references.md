@@ -201,5 +201,5 @@ curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip
 
 | Command | Description |
 | ------- | ----------- |
- | tar cvf directory.tar diroctery | to tar the folder |
- |tar cvfz foldername.tgz | to tar the folder with tgz |
+ | tar cvf foldername.tar foldername | to tar the folder |
+ |tar cvfz foldername.tgz foldername | to tar the folder with tgz |
