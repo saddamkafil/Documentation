@@ -203,3 +203,7 @@ curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip
 | ------- | ----------- |
  | tar cvf foldername.tar foldername | to tar the folder |
  |tar cvfz foldername.tgz foldername | to tar the folder with tgz |
+ |check which os running| `ls /etc/*release*`|
+ |check OS version|`cat /etc/centos-release`|
+ |download file and save it to filename.txt|curl URL -O filename.txt|
+ 
