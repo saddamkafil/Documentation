@@ -67,6 +67,23 @@ docker exec -it <container_Name> /bin/bash
 ```
 
 
+### Docker tag and push image to repo
+======================================
+1. #### Create repo in dockerhub
+2. #### Tag image locally 
+```sh
+docker tag local-image:tagname new-repo:tagname
+```
+#### example: docker tag amzlinux-tf:latest saddamkafil/amzlinux-tf:latest
+
+3: #### Push to docker repo
+```sh
+docker push new-repo:tagname
+```
+#### Example: docker push saddamkafil/amzlinux-tf:latest 
+
+
+
 | Command | Description |
 | ------- | ----------- |
 |``sudo docker ps -a pipe grep Exit pipe cut -d ' ' -f 1 pipe xargs sudo docker rm``| Removes all containers in exited state|
