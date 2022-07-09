@@ -206,4 +206,7 @@ curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip
  |check which os running| `ls /etc/*release*`|
  |check OS version|`cat /etc/centos-release`|
  |download file and save it to filename.txt|curl URL -O filename.txt|
+ | generate sshkeys | ssh-keygen |
+ | ssh-keyden location | /root/.ssh/ |
+ |how to enable password less ssh|copy id_rsa.pub to other server /root/.ssh/authorized_keys |
  
