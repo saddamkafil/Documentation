@@ -70,6 +70,7 @@ Git Commands
 | `git rm --cached [file_name]` | To delete file from staging server but not from local |
 | `gh pr list --state closed` | list all closed pull requests |
 | `gh pr list` | List all open pull requests |
+|`git ls-remote origin 'pull/*/head'`| list pull request |
 
 
 
