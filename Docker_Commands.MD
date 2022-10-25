@@ -93,3 +93,6 @@ docker push new-repo:tagname
 |`docker run -itd -p 8080:8080 --name containername imagename:tag /bin/bash`| To run a docker container on port 8080|
 |`docker cp <src-path> <container>:<dest-path> `| To copy a file from the local file system to a running container|
 |`docker cp <container>:<src-path> <local-dest-path> `|To copy a file from the container to the local file system|
+|`docker save -o /home/ubuntu/docker-image.tar dockerimage:tag`| Tar docker image on loacl system|
+|`scp -r -i pemkey.pem docker-image.tar ubuntu@ip-address:/home/ubuntu/`| Copy tared docker image to another server|
+|`docker load -i imagename.tar`| To load copied docker image from remote server to this server|
