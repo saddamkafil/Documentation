@@ -96,3 +96,16 @@ docker push new-repo:tagname
 |`docker save -o /home/ubuntu/docker-image.tar dockerimage:tag`| Tar docker image on loacl system|
 |`scp -r -i pemkey.pem docker-image.tar ubuntu@ip-address:/home/ubuntu/`| Copy tared docker image to another server|
 |`docker load -i imagename.tar`| To load copied docker image from remote server to this server|
+
+4: #### delete all docker conatiners in exited state
+```sh
+sudo docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm
+```
+5: #### Delet all images with none name
+```sh
+docker rmi $(docker images -f "dangling=true" -q)
+```
+6:  #### Create docker image with different file name
+```sh
+docker build -t test-open-original -f Dockerfile3 .
+```
