@@ -209,4 +209,5 @@ curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip
  | generate sshkeys | ssh-keygen |
  | ssh-keyden location | /root/.ssh/ |
  |how to enable password less ssh|copy id_rsa.pub to other server /root/.ssh/authorized_keys |
- 
+ | How to check connection of DB from cli | telnet db-endpoint portnumber |
+ | How to get LB endpoint using cli | nslookup endpoint |
