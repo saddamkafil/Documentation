@@ -211,3 +211,8 @@ curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip
  |how to enable password less ssh|copy id_rsa.pub to other server /root/.ssh/authorized_keys |
  | How to check connection of DB from cli | telnet db-endpoint portnumber |
  | How to get LB endpoint using cli | nslookup endpoint |
+ | How to see disk space available on file system | df -lh |
+ | To see the free disk | fdisk -l |
+ | To list the disk mounted | lsblk |
+ | Resize or expand the disk size | resize2fs /dev/diskname |
+ | Check healt status code | curl -v https:127.0.0.1:port |
