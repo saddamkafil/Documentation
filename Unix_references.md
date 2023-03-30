@@ -216,3 +216,4 @@ curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip
  | To list the disk mounted | lsblk |
  | Resize or expand the disk size | resize2fs /dev/diskname |
  | Check healt status code | curl -v https:127.0.0.1:port |
+ | ssh using currepted pem | ssh -o PubkeyAcceptedKeyTypes=ssh-rsa -i your-pem.pem user@host |
