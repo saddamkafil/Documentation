@@ -111,3 +111,12 @@ docker rmi $(docker images -f "dangling=true" -q)
 ```sh
 docker build -t test-open-original -f Dockerfile3 .
 ```
+
+7. Start jenkins as container with volume
+```
+docker run --restart=always -d -p 80:8080 -p 50000:50000 -v /var/jenkins_home:/var/jenkins_home --name jenkins-2.319.2 jenkins/jenkins:lts
+```
+8. Start Nexus as container with volume
+```
+sudo docker run -d -p 8081:8081 --restart=always --name nexus -v /data/nexus-data:/nexus-data -p 8082:8082 sonatype/nexus3
+```
