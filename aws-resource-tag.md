@@ -1,19 +1,4 @@
 Automatically Tagging AWS Resources with Usernames: A Brief Automation Guide
-TechStoryLines
-TechStoryLines
-
-·
-Follow
-
-3 min read
-·
-Jul 27
-209
-
-
-
-
-
 
 Introduction
 Hello and welcome back to our page! In this blog, we’ve successfully tackled a common challenge faced by many organizations — the issue of effectively managing resources in their AWS accounts. Over time, these resources tend to accumulate, and it becomes challenging to determine which ones are still necessary. When we finally realize the magnitude of the resources and the need to evaluate their relevance, it requires bringing in the account owner for a manual review and potential deletion of unnecessary items.
@@ -38,6 +23,7 @@ The initial step involves creating an EventBridge rule with a customized rule pa
 
 Here is the event pattern to add.
 
+```
 {
   "detail": {
     "configurationItem": {
@@ -49,6 +35,7 @@ Here is the event pattern to add.
   "detail-type": ["Config Configuration Item Change"],
   "source": ["aws.config"]
 }
+```
 Step-2: Create a Lambda
 Afterward, proceed to create a Lambda function and incorporate the following Python code. Make sure to grant the necessary permissions to the Lambda function to read CloudTrail logs and also permission to tag Lambda and EC2 resources.
 
@@ -110,3 +97,6 @@ def lambda_handler(event, context):
 ```
 That’s It!
 Congratulations! With the implementation of this solution, you now have enhanced control over your resources. The automated tagging process ensures that tags are automatically added whenever a new Lambda function or EC2 instance is created in your account. This level of tagging provides you with improved oversight and organization of resources throughout the entire account, leading to better visibility and exposure of the required resources when needed.
+
+
+Source: https://medium.com/@TechStoryLines/automatically-tagging-aws-resources-with-usernames-a-brief-automation-guide-57d70455e66a
