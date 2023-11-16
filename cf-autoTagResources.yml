@@ -1,0 +1,142 @@
+AWSTemplateFormatVersion: 2010-09-09   
+Resources:
+  autoTagResourcesLambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Description: "autoResourceTag Lambda"
+      Runtime: "python3.11"
+      Architectures: [ "x86_64" ]
+      Timeout: 10
+      Role: !GetAtt autoresourcetagLambdaIAMRole.Arn
+      FunctionName: "autoTagResourcesLambdaFunction"
+      Handler: "index.handler"
+      Code:
+        ZipFile: |
+          import json
+          import boto3
+          def lambda_handler(event, context): 
+              client = boto3.client('cloudtrail')
+
+              resource_type = event["detail"]["configurationItem"]["resourceType"]
+              resource_arn = event["resources"][0]
+
+              if resource_type == "AWS::Lambda::Function":
+                  resource_name = event["detail"]["configurationItem"]["configuration"]["functionName"]
+
+                  response = client.lookup_events(
+                  LookupAttributes=[
+                      {
+                          'AttributeKey': 'ResourceName',
+                          'AttributeValue': resource_name
+                      },
+                  ],
+                  )
+                  user_name=response["Events"][0]["Username"]
+
+                  client = boto3.client('lambda')
+
+                  client.tag_resource(
+                      Resource=resource_arn,
+                      Tags={'Created_by': user_name}
+                      )
+                  print("Lambda function "+resource_name+" tagged with username = " + user_name)
+
+              elif resource_type == "AWS::EC2::Instance":
+                  resource_name = event["detail"]["configurationItem"]["configuration"]["instanceId"]
+                  print(resource_name)
+
+
+                  response = client.lookup_events(
+                  LookupAttributes=[
+                      {
+                          'AttributeKey': 'ResourceName',
+                          'AttributeValue': resource_name
+                      },
+                  ],
+                  )
+                  user_name=response["Events"][0]["Username"]
+
+                  client = boto3.client('ec2')
+                  client.create_tags(
+                      Resources=[ resource_name ],
+                      Tags=[
+                          {
+                              'Key': 'Created_by',
+                              'Value': user_name
+                          },
+                      ])
+                  print("EC2 Instance "+resource_name+" tagged with username = " + user_name)
+      Tags:
+        - Key: "Name"
+          Value: "autoResourceTag"
+  autoresourcetagLambdaIAMRole: 
+      Type: AWS::IAM::Role
+      Properties:
+        RoleName: "autoresourcetagLambdaIAMRole"
+        AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+              - lambda.amazonaws.com
+            Action:
+            - sts:AssumeRole
+        Path: "/"
+        Policies:
+        - PolicyName: ListUser-TagEc2Instances
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+            - Effect: Allow
+              Action:
+              - ec2:CreateTags
+              - iam:ListUsers
+              - iam:GetUser
+              - iam:GetAccountSummary
+              Resource: "*"
+        - PolicyName: CloudTrailReadonly-AWSConfigUserAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+            - Effect: Allow
+              Action:
+              - cloudtrail:Get*
+              - cloudtrail:Describe*
+              - cloudtrail:List*
+              - cloudtrail:LookupEvents
+              - config:Get*
+              - config:Describe*
+              - config:Deliver*
+              - config:List*
+              - config:Select*
+              - tag:GetResources
+              - tag:GetTagKeys
+              - cloudtrail:DescribeTrails
+              - cloudtrail:GetTrailStatus
+              - cloudtrail:LookupEvents
+              - logs:CreateLogGroup
+              - logs:CreateLogStream
+              - logs:PutLogEvents              
+              Resource: "*"   
+  resourceTagAutomationEventRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: "CloudFormation template for EventBridge rule resourceTagAutomation"
+      EventPattern: |
+        {
+          "detail": {
+            "configurationItem": {
+              "configurationItemStatus": ["ResourceDiscovered"],
+              "resourceType": ["AWS::Lambda::function", "AWS::EC2::Instance", "AWS::IAM::Role", "AWS::EC2::SecurityGroup", "AWS::IAM::Policy"]
+            },
+            "messageType": ["ConfigurationItemChangeNotification"]
+          },
+          "detail-type": ["Config Configuration Item Change"],
+          "source": ["aws.config"]
+        }
+      Name: "resourceTagAutomationEventRule"
+      State: "ENABLED"
+      Targets:
+       - Id: "autoTagResourcesLambdaFunction"
+         Arn: !GetAtt autoTagResourcesLambdaFunction.Arn
