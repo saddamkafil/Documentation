@@ -95,7 +95,7 @@ MyfirstAppStack: creating CloudFormation changeset...
 ✨  Deployment time: 15.59s
 
 Stack ARN:
-arn:aws:cloudformation:ap-south-1:102637054225:stack/MyfirstAppStack/679a37c0-b4e3-11ee-b42a-0663e47e477f
+arn:aws:cloudformation:ap-south-1:xxxxxxxxxxxxx:stack/MyfirstAppStack/679a37c0-b4e3-11ee-b42a-0663e47e477f
 
 ✨  Total time: 88.5s
 
