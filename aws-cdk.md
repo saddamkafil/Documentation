@@ -102,11 +102,11 @@ arn:aws:cloudformation:ap-south-1:102637054225:stack/MyfirstAppStack/679a37c0-b4
 ```
 
 
-lib/myfist-app-stack.ts files coantains constructs configuration
+### lib/myfist-app-stack.ts ---> files contains constructs configuration
 
-bin/myfirst-app.ts file conatins all details about app
+### bin/myfirst-app.ts ---- >file contains all details about the app
 
-###Command and step-by-step process
+### Command and step-by-step process
 
 | Command | Description |
 | ------- | ----------- |
