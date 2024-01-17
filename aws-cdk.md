@@ -1,17 +1,18 @@
-How to deploy application aws-cdk using type script?
+## How to deploy application aws-cdk using type script?
 ====================================================
-#### Step1. Create a folder with application name.
+1. Create a folder with application name.
 
-#### Step2. cd folder
+2. cd folder
 
-#### Step3. To initiate the language run command 
+3. To initiate the language run command 
 ```cmd: cdk init app --language=typescript ```
 
-#### Step4. To install required packages using npm i command
+4. To install required packages using npm i command
 ```ex: npm i @aws-cdk-lib/aws-sqs```
-#### step5. Uncomment sqs block from lib/myfirst-app-stack.ts file 
 
-_before and after uncomment file looks myfirst-app-stack.ts file looks like_
+5. Uncomment sqs block from lib/myfirst-app-stack.ts file 
+
+_before and after uncomment file  lib/myfirst-app-stack.ts file looks like_
 ```sh
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
@@ -50,8 +51,9 @@ export class MyfirstAppStack extends cdk.Stack {
 }
 ```
 
-#### Step5: first we need to build app using cdk just like tf init  # to build app run below command 
+5: first we need to build app using cdk just like tf init  # to build app run below command 
 ```cmd: npm run build```
+
  _The output should be something like this,_
 ```sh 
 npm run build
@@ -60,8 +62,9 @@ npm run build
 > tsc
 ```
 
-#### Step6: Now deploy / create sqs using cdk by running command
+6: Now deploy / create sqs using cdk by running command
 ```cmd: cdk deploy ```
+
 _output_
 ```
 saddamshaik@JHFRHS3:/mnt/c/Users/Saddam.Shaik/Desktop/Workspace/my-learnings/aws-cdk/myfirst-app$ cdk deploy
