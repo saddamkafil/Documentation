@@ -117,6 +117,8 @@ arn:aws:cloudformation:ap-south-1:xxxxxxxxxxxxx:stack/MyfirstAppStack/679a37c0-b
 |``npm i @aws-cdk-lib/aws-sqs``          | Install required packages        |
 |``npm run build``                       | To create build on local machine |
 |``cdk deploy``                          | To deploy application in AWS     |
+|``cdk synth > template.yaml``           | Creates a CF template in local machine |
+|``cdk destroy``                         | Destroy the application / CF stack from console    |
 
 
 More videos and tutorials at Youtube
