@@ -103,5 +103,15 @@ arn:aws:cloudformation:ap-south-1:102637054225:stack/MyfirstAppStack/679a37c0-b4
 
 
 lib/myfist-app-stack.ts files coantains constructs configuration
+
 bin/myfirst-app.ts file conatins all details about app
+
+###Command and step-by-step process
+
+| Command | Description |
+| ------- | ----------- |
+|``cdk init app --language=typescript``  | Initiate project and language    |
+|``npm i @aws-cdk-lib/aws-sqs``          | Install required packages        |
+|``npm run build``                       | To create build on local machine |
+|``cdk deploy``                          | To deploy application in AWS     |
 
