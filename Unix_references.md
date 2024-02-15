@@ -217,3 +217,5 @@ curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip
  | Resize or expand the disk size | resize2fs /dev/diskname |
  | Check healt status code | curl -v https:127.0.0.1:port |
  | ssh using currepted pem | ssh -o PubkeyAcceptedKeyTypes=ssh-rsa -i your-pem.pem user@host |
+ | set time on server | timedatectl set-time "2024-05-06 09:07" |
+ | set time on server to timezone | sudo timedatectl set-timezone Australia/Melbourne |
