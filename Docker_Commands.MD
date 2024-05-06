@@ -98,6 +98,7 @@ docker push new-repo:tagname
 |`docker load -i imagename.tar`| To load copied docker image from remote server to this server|
 |`docker volume ls`| to list the volumes |
 |`docker system df`| To list the docker system disk space format|
+|`docker run -d -p 5000:5000 --restart=always --name registry registry:2` | start you local docker repo (works on windows k8 engine)|
 
 4: #### delete all docker conatiners in exited state
 ```sh
