@@ -31,6 +31,12 @@ Jenkins is a self-contained Java-based program, ready to run out-of-the-box, wit
    openjdk version "1.8.0_151"
    OpenJDK Runtime Environment (build 1.8.0_151-b12)
    OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)
+
+Retrive secrets from jenkins
+
+| Command | Description |
+| ------- | ----------- |
+|``println hudson.util.Secret.decrypt("{AQAAABAAAAAQDV5NJrgw643/iGDUum5bYgF74pGt1Ahi0ykGZfK8Kck=}")``| goto updae secrets and view page source na dseacrch for value="{}" and replace it in command |
    ```
 
 ## Install Jenkins
