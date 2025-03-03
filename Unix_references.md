@@ -220,8 +220,9 @@ curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip
  | set time on server | timedatectl set-time "2024-05-06 09:07" |
  | set time on server to timezone | sudo timedatectl set-timezone Australia/Melbourne |
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Tmux
+### Tmux Cheet Sheet
 | Command | Description |
 | ------- | ----------- |
  | tmux ls | list sessions |
