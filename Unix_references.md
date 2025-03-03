@@ -239,7 +239,7 @@ curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip
  | tmux kill-server | Kill all sessions with single command |
  | Cntrl + b, d | To exit or detach current sessions |
  | tmux rename-session -t mysession newsession | Rename session |
- | `tmux new-session -s mysession \;` <br> `split-window -h \;` <br> `split-window -v -t 0 \;` <br> `split-window -v -t 1 \;` <br> `select-layout tiled` | Create 1sessiona nd split into 4 panels |
+ | `tmux new-session -s mysession \; \ ` <br> `split-window -h \; \ ` <br> `split-window -v -t 0 \; \ ` <br> `split-window -v -t 1 \; \ ` <br> `select-layout tiled` | Create 1sessiona nd split into 4 panels |
 
 
  Here is the script to create a session and automitcally split into 4 windows/panels
