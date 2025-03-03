@@ -239,8 +239,6 @@ curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip
  | tmux kill-server | Kill all sessions with single command |
  | Cntrl + b, d | To exit or detach current sessions |
 
-  | tmux new-session -s mysession \; \ split-window -h \; \ split-window -v -t 0 \; \ split-window -v -t 1 \; \ select-layout tiled | create session and split into 4 equal windows |
-
  Here is the script to create a session and automitcally split into 4 windows/panels
 ```
 #!/bin/bash
@@ -272,3 +270,12 @@ save the above script as start_tmux_4_panels.sh and create alias in ~/.bash_prof
 alias tmux4='/mnt/d/Workspace/bitbucket/start_tmux_4_panels.sh'
 ```
 This will create a alias and would be easy to use
+
+#### Single command to create a sessiona nd split to 4 parts.
+```
+tmux new-session -s mysession \; \
+    split-window -h \; \
+    split-window -v -t 0 \; \
+    split-window -v -t 1 \; \
+    select-layout tiled
+```
