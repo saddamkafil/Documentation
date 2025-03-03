@@ -57,6 +57,17 @@
 
 ---
 
+## **🔳 Difference Between tmux Windows and Panes**
+| Feature | Window | Pane |
+|---------|--------|------|
+| **Definition** | A window is like a **tab** in tmux, similar to a new tab in a web browser or terminal emulator. | A pane is a **split section inside a window**, allowing multiple terminal views within the same window. |
+| **Navigation** | You can switch between windows using `Ctrl + B`, then `N` (next) or `P` (previous). | You can move between panes using `Ctrl + B`, then Arrow Keys. |
+| **Splitting** | You cannot split a window itself, but you can create multiple panes inside it. | A pane can be split further into more panes (horizontally or vertically). |
+| **Scope** | Each window has a name and can have multiple panes inside it. | Each pane is part of a window and is a separate shell instance. |
+| **Example Use Case** | Use different windows for different projects, e.g., one for code, one for logs, one for testing. | Use panes inside a window to run multiple processes, e.g., one for a server, one for a database, and one for logs. |
+
+---
+
 ## **🔥 Bonus: Start tmux with a Preconfigured Layout**
 If you always work with the same layout, save it as a script:
 
