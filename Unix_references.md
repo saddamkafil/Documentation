@@ -219,3 +219,52 @@ curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip
  | ssh using currepted pem | ssh -o PubkeyAcceptedKeyTypes=ssh-rsa -i your-pem.pem user@host |
  | set time on server | timedatectl set-time "2024-05-06 09:07" |
  | set time on server to timezone | sudo timedatectl set-timezone Australia/Melbourne |
+
+
+### Tmux
+| Command | Description |
+| ------- | ----------- |
+ | tmux ls | list sessions |
+ | tmux new -s <session_name> | Create new sessions |
+ | tmux a -t psqldump | Attach sessions psqldump |
+ | tmux detach | detach session |
+ | tmux detach -s <session_name> | detach specific session |
+ | for i in {1..4}; do tmux new-session -d -s session$i; done | Create 4 session at a time |
+ | Ctrl + B, then Arrow Keys | Move between panels | 
+ | Ctrl + B, then X (confirm with Y) | Kill panel |
+ | Ctrl + B, Shift + % | Split sesson Horizontal |
+ | Ctrl + B, Shift + " | Split sesson Vertical |
+ | tmux kill-session -t mysession | Kill session without attaching it |
+ | tmux kill-server | Kill all sessions with single command |
+
+ Here is the script to create a session and automitcally split into 4 windows/panels
+```
+#!/bin/bash
+
+# Start a new tmux session named "main"
+tmux new-session -d -s main
+
+# Split the screen into four equal panes
+tmux split-window -h -t main      # Split into left and right
+tmux split-window -v -t main:0.0  # Split left pane into top-left and bottom-left
+tmux split-window -v -t main:0.1  # Split right pane into top-right and bottom-right
+
+# Adjust pane sizes equally
+tmux select-layout -t main tiled
+
+# Start different tmux sessions inside each pane
+tmux send-keys -t main:0.0 "tmux new-session -A -s session1" C-m
+tmux send-keys -t main:0.1 "tmux new-session -A -s session2" C-m
+tmux send-keys -t main:0.2 "tmux new-session -A -s session3" C-m
+tmux send-keys -t main:0.3 "tmux new-session -A -s session4" C-m
+
+# Attach to the main session
+tmux attach -t main
+
+```
+save the above script as start_tmux_4_panels.sh and create alias in ~/.bash_profile as 
+
+```
+alias tmux4='/mnt/d/Workspace/bitbucket/start_tmux_4_panels.sh'
+```
+This will create a alias and would be easy to use
