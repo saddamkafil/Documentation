@@ -1,19 +1,13 @@
+### This script automates logging for Terragrunt apply operations and work directory tracking. It helps maintain structured logs in CSV and log files, making it easy to track applied infrastructure changes and work activities.
 
-
-⸻
-
-
-This script automates logging for Terragrunt apply operations and work directory tracking. It helps maintain structured logs in CSV and log files, making it easy to track applied infrastructure changes and work activities.
-
-⸻
-
+---------
 📌 Features
 	•	Logs terragrunt apply actions with timestamps, directories, and Git branches.
 	•	Tracks work-related activities, including ticket numbers and descriptions.
 	•	Saves logs in both CSV and log files.
 	•	Organizes logs automatically in ~/Desktop/Workspace/work-trackers/log-files/.
 
-⸻
+---------
 
 📥 Setup Instructions
 
