@@ -11,9 +11,9 @@
 
 📥 Setup Instructions
 
-1️⃣ Save the script
+1️⃣ Save the script 
 
-Copy work-tracker.sh into:
+Copy work-tracker.sh into: ~/Desktop/Workspace/work-trackers/work-tracker.sh
 
 Work Tracker Script (work-tracker.sh)
 ```bash
@@ -165,8 +165,6 @@ else
     echo "Usage: work-tracker.sh [tg-apply | swd]"
 fi
 ```
-
-~/Desktop/Workspace/work-trackers/work-tracker.sh
 
 2️⃣ Make it executable
 
