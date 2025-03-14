@@ -1,6 +1,25 @@
-I cannot create the README.md file directly because the tool for that is currently unavailable. However, here is the content you can manually save as README.md:
+
 
 ⸻
+
+
+This script automates logging for Terragrunt apply operations and work directory tracking. It helps maintain structured logs in CSV and log files, making it easy to track applied infrastructure changes and work activities.
+
+⸻
+
+📌 Features
+	•	Logs terragrunt apply actions with timestamps, directories, and Git branches.
+	•	Tracks work-related activities, including ticket numbers and descriptions.
+	•	Saves logs in both CSV and log files.
+	•	Organizes logs automatically in ~/Desktop/Workspace/work-trackers/log-files/.
+
+⸻
+
+📥 Setup Instructions
+
+1️⃣ Save the script
+
+Copy work-tracker.sh into:
 
 Work Tracker Script (work-tracker.sh)
 ```bash
@@ -153,37 +172,24 @@ else
 fi
 ```
 
-This script automates logging for Terragrunt apply operations and work directory tracking. It helps maintain structured logs in CSV and log files, making it easy to track applied infrastructure changes and work activities.
-
-⸻
-
-📌 Features
-	•	Logs terragrunt apply actions with timestamps, directories, and Git branches.
-	•	Tracks work-related activities, including ticket numbers and descriptions.
-	•	Saves logs in both CSV and log files.
-	•	Organizes logs automatically in ~/Desktop/Workspace/work-trackers/log-files/.
-
-⸻
-
-📥 Setup Instructions
-
-1️⃣ Save the script
-
-Copy work-tracker.sh into:
-
 ~/Desktop/Workspace/work-trackers/work-tracker.sh
 
 2️⃣ Make it executable
 
+Run:
+```
 chmod +x ~/Desktop/Workspace/work-trackers/work-tracker.sh
+```
 
 3️⃣ Add aliases for quick access
 
 Run:
 
+```
 echo 'alias tg-apply="~/Desktop/Workspace/work-trackers/work-tracker.sh tg-apply"' >> ~/.bash_profile
 echo 'alias swd="~/Desktop/Workspace/work-trackers/work-tracker.sh swd"' >> ~/.bash_profile
 source ~/.bash_profile
+```
 
 (For Zsh users, use ~/.zshrc instead.)
 
@@ -249,4 +255,3 @@ If you face any issues, ensure:
 
 ⸻
 
-You can save this as README.md in your ~/Desktop/Workspace/work-trackers/ directory. Let me know if you need any changes! 😊
